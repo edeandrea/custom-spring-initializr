@@ -14,8 +14,7 @@ group = 'com.redhat.springboot'
 ext {
 	springInitializrVersion = '0.6.0.RELEASE'
 	jaxbVersion = '2.2.11'
-	poiVersion = '3.17'
-	jacocoVersion = '0.8.2'
+	poiVersion = '4.0.1'
 	mapstructVersion = '1.3.0.Final'
 	springCloudVersion = 'Greenwich.RELEASE'
 }
