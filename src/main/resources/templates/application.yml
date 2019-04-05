@@ -1,0 +1,64 @@
+spring:
+  application:
+    name: {{applicationName}}
+  hateoas:
+    use-hal-as-default-json-media-type: false
+  jackson:
+    default-property-inclusion: non_empty
+    deserialization:
+      accept-empty-string-as-null-object: true
+      accept-empty-array-as-null-object: true
+      fail-on-null-for-primitives: true
+
+{{#isBoot1}}
+management:
+  context-path: /actuator
+  security:
+    enabled: false
+  info:
+    git:
+      mode: full
+
+security:
+  basic:
+    enabled: false
+
+endpoints:
+  restart:
+    enabled: true
+  hypermedia:
+    enabled: true
+{{/isBoot1}}
+{{#isBoot2}}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+      health:
+        show-details: always
+  info:
+    git:
+      mode: full
+{{/isBoot2}}
+
+logging:
+  level:
+    root: warn
+    {{packageName}}: debug
+
+{{#hasAcidService}}
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /api
+
+# Uncomment to turn on security
+#mycompany:
+#  acid:
+#    service:
+#      security:
+#        enabled: true
+{{/hasAcidService}}

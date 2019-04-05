@@ -1,0 +1,7 @@
+swagger: '2.0'
+info:
+  description: {{description}}
+  version: '{{version}}'
+  title: Red Hat {{name}}
+  contact: {}
+paths: {}
